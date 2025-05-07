@@ -432,3 +432,64 @@ body {
 .scroll-top:hover {
   background: #334155;
 }
+
+/* === COURSES OVERVIEW === */
+
+.courses-overview {
+  padding: 3rem 1.5rem;
+  background-color: #f8fafc;
+  text-align: center;
+}
+
+.courses-overview h2 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 2rem;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.course-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.course-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.course-card h3 {
+  font-size: 1.2rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.course-card p {
+  color: #475569;
+  margin: 0.25rem 0;
+}
+
+.course-card .price {
+  font-weight: bold;
+  color: #1e40af;
+  margin-top: 0.5rem;
+}

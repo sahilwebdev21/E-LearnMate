@@ -1,3 +1,4 @@
+import CoursesOverview from "@/components/CoursesOverview";
 import CTA from "@/components/CTA";
 import Features from "@/components/Features";
 import Footer from "@/components/Footer";
@@ -12,6 +13,7 @@ export default function Home() {
       <Hero />
       <Features />
       <Partners />
+      <CoursesOverview />
       <CTA />
       <Footer />
     </>
