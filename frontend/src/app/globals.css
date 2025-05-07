@@ -316,3 +316,41 @@ body {
   opacity: 1;
   transform: scale(1.1);
 }
+
+/* === CTA SECTION === */
+
+.cta {
+  background: linear-gradient(to right, #0070f3, #0051a3);
+  color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 12px;
+  margin: 4rem 2rem;
+}
+
+.cta-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cta-content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.cta-btn {
+  background-color: #fff;
+  color: #0070f3;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #e6f0ff;
+  color: #0051a3;
+}
