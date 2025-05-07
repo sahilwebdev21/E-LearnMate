@@ -1,19 +1,13 @@
-import Link from "next/link";
+import Features from "@/components/Features";
+import Hero from "@/components/Hero";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
-    <section className="hero">
-      <div className="hero-content">
-        <h1>Empower Your Learning with <span>E-LearnMate</span></h1>
-        <p>Join thousands of learners and instructors on the smartest e-learning platform. Learn at your pace, grow at your style.</p>
-        <div className="hero-buttons">
-          <Link href="/register" className="btn primary-btn">Get Started</Link>
-          <Link href="/courses" className="btn secondary-btn">Browse Courses</Link>
-        </div>
-      </div>
-      <div className="hero-image">
-        <img src="/hero-illustration.svg" alt="Learning Illustration" />
-      </div>
-    </section>
+    <>
+      <Navbar />
+      <Hero />
+      <Features />
+    </>
   );
 }

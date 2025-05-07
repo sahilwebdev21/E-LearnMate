@@ -232,3 +232,52 @@ body {
     align-items: center;
   }
 }
+
+/* === FEATURES SECTION === */
+
+.features {
+  padding: 4rem 2rem;
+  background: #ffffff;
+  text-align: center;
+}
+
+.features-title {
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+  color: #1a1a1a;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.feature-box {
+  background: #f3f3f3;
+  padding: 2rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.feature-box:hover {
+  background: #e9f3ff;
+  transform: translateY(-5px);
+}
+
+.feature-box .icon {
+  color: #0070f3;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1rem;
+}
+
+.feature-box h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-box p {
+  font-size: 1rem;
+  color: #444;
+}
