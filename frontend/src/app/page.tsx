@@ -1,6 +1,7 @@
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import Partners from "@/components/Partners";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Features />
+      <Partners />
     </>
   );
 }

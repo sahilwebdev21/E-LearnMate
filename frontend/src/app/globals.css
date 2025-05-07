@@ -281,3 +281,38 @@ body {
   font-size: 1rem;
   color: #444;
 }
+
+
+/* === PARTNERS SECTION === */
+
+.partners {
+  background-color: #f9f9f9;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.partners-title {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.logo-container img {
+  max-height: 40px;
+  object-fit: contain;
+  opacity: 0.8;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logo-container img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
