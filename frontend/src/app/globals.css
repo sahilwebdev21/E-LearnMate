@@ -78,3 +78,63 @@ body {
     display: none;
   }
 }
+
+/* === HAMBURGER MENU STYLES === */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.line {
+  width: 25px;
+  height: 3px;
+  background-color: #0070f3;
+  transition: 0.4s ease;
+}
+
+.rotate1 {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.fade {
+  opacity: 0;
+}
+
+.rotate2 {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive Rules */
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-links,
+  .navbar-buttons {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-links.active,
+  .navbar-buttons.active {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .navbar-buttons .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
