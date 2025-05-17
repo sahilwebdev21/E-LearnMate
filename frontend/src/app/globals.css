@@ -270,3 +270,77 @@ body {
     width: 50%;
   }
 }
+
+/* === AUTH PAGES === */
+
+.el-auth-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+.el-auth-wrapper {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  max-width: 400px;
+  width: 100%;
+}
+
+.el-auth-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #1e293b;
+}
+
+.el-auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.el-auth-input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.el-auth-input:focus {
+  outline: none;
+  border-color: #38bdf8;
+}
+
+.el-auth-button {
+  padding: 0.8rem 1rem;
+  background-color: #1e293b;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.el-auth-button:hover {
+  background-color: #0f172a;
+}
+
+.el-auth-link-text {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+.el-auth-link-text a {
+  color: #38bdf8;
+  text-decoration: underline;
+}

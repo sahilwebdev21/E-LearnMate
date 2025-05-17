@@ -16,7 +16,7 @@ export default function Navbar() {
         <Link href="/courses">Courses</Link>
         <Link href="/about">About</Link>
         <Link href="/contact">Contact</Link>
-        <Link href="/login" className="el-login-btn">Login</Link>
+        <Link href="/auth/login" className="el-login-btn">Login</Link>
       </nav>
       <button className="el-nav-toggle" onClick={() => setIsOpen(!isOpen)}>
         ☰
