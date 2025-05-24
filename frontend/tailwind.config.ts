@@ -10,7 +10,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#2563eb',
+        primary: "#2563eb",
+      },
+      screens: {
+        md: "768px",
+        lg: "1024px",
       },
     },
   },

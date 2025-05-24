@@ -1,14 +1,18 @@
 'use client'
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRequireAuth } from '@/hooks/useAuth'
 
 export default function StudentDashboard() {
-  const router = useRouter()
+  useRequireAuth('student')
 
-  useEffect(() => {
-    const role = localStorage.getItem('userRole')
-    if (role !== 'student') router.push(`/${role}`)
-  }, [])
-
-  return <h1 className="text-2xl font-bold">Student Dashboard</h1>
+  return (
+    <div>
+      <h1 className="text-2xl font-bold mb-6">Student Dashboard</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-white p-6 rounded-xl shadow-sm">
+          <h3 className="text-lg font-semibold mb-2">Active Courses</h3>
+          {/* Course list */}
+        </div>
+      </div>
+    </div>
+  )
 }
