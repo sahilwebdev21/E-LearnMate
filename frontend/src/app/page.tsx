@@ -1,4 +1,5 @@
 import CategoryCard from "@/components/cards/CategoryCard";
+import CourseCard from "@/components/cards/CourseCard";
 import InstructorCard from "@/components/cards/InstructorCard";
 import Link from "next/link";
 
@@ -74,6 +75,41 @@ export default function Home() {
       studentCount: 15600
     }
   ];
+
+  // Placeholder courses data
+  const featuredCourses = [
+    {
+      id: 'react-masterclass',
+      title: 'React Masterclass: From Zero to Hero',
+      category: 'Web Development',
+      instructor: 'Alex Johnson',
+      rating: 4.9,
+      price: 89.99,
+      duration: '22 hours',
+      students: 12450
+    },
+    {
+      id: 'python-data-science',
+      title: 'Python for Data Science and Machine Learning',
+      category: 'Data Science',
+      instructor: 'Sarah Williams',
+      rating: 4.8,
+      price: 99.99,
+      duration: '30 hours',
+      students: 18700
+    },
+    {
+      id: 'ux-design-fundamentals',
+      title: 'UX Design Fundamentals: From Research to Prototype',
+      category: 'UI/UX Design',
+      instructor: 'Emma Rodriguez',
+      rating: 4.95,
+      price: 79.99,
+      duration: '18 hours',
+      students: 9500
+    }
+  ];
+
   return (
     <div>
       {/* Hero Section */}
@@ -251,6 +287,77 @@ export default function Home() {
                 <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Courses Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Featured <span className="text-primary">Courses</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Explore our most popular and highly rated courses taught by industry experts
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {featuredCourses.map((course) => (
+              <CourseCard
+                key={course.id}
+                id={course.id}
+                title={course.title}
+                category={course.category}
+                instructor={course.instructor}
+                rating={course.rating}
+                price={course.price}
+                duration={course.duration}
+                students={course.students}
+              />
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link 
+              href="/courses" 
+              className="inline-flex items-center bg-primary hover:bg-primary-light text-white font-bold py-3 px-8 rounded-full transition-colors"
+            >
+              Browse All Courses
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-16 bg-primary/5">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Stay Updated with <span className="text-primary">E-LearnMate</span>
+            </h2>
+            <p className="text-xl text-gray-600 mb-8">
+              Subscribe to our newsletter for the latest courses, learning tips, and exclusive offers
+            </p>
+            
+            <div className="bg-white rounded-xl shadow-lg p-1 flex flex-col sm:flex-row gap-2 max-w-2xl mx-auto">
+              <input 
+                type="email" 
+                placeholder="Enter your email address" 
+                className="flex-grow px-6 py-4 rounded-xl border-0 focus:ring-2 focus:ring-primary focus:outline-none"
+              />
+              <button 
+                type="submit"
+                className="bg-primary hover:bg-primary-light text-white font-bold py-4 px-8 rounded-xl transition-colors whitespace-nowrap"
+              >
+                Subscribe Now
+              </button>
+            </div>
+            
+            <p className="text-gray-500 text-sm mt-4">
+              We respect your privacy. Unsubscribe at any time.
+            </p>
           </div>
         </div>
       </section>
