@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Inter, Poppins } from "next/font/google";
 
 // Load fonts
@@ -34,6 +36,18 @@ export default function AuthLayout({
         <Navbar />
         <main className="flex-grow flex items-center justify-center py-12 px-4">
           {children}
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
         </main>
         <Footer />
       </body>
