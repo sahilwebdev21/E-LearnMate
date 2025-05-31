@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   description: "Revolutionize your learning experience with AI-powered personalization",
 };
 
-export default function RootLayout({
+export default function AuthLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <body className="flex flex-col min-h-screen bg-gray-50 font-sans">
         <Navbar />
-        <main className="flex-grow">
+        <main className="flex-grow flex items-center justify-center py-12 px-4">
           {children}
         </main>
         <Footer />

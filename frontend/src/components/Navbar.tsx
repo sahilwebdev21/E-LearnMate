@@ -24,22 +24,30 @@ const Navbar = () => {
         <div className="hidden md:flex space-x-8">
           {navLinks.map((link) => (
             <Link
-  key={link.name}
-  href={link.path}
-  className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
->
-  {link.name}
-</Link>
+              key={link.name}
+              href={link.path}
+              className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
+            >
+              {link.name}
+            </Link>
           ))}
         </div>
 
         {/* CTA Button */}
-        <Link
-          href="/signup"
-          className="bg-primary hover:bg-primary-light text-white font-bold py-2 px-6 rounded-full transition-colors"
-        >
-          Sign Up
-        </Link>
+        <div className="flex items-center gap-4">
+          <Link
+            href="/login"
+            className="text-primary hover:text-primary-dark font-bold transition-colors"
+          >
+            Sign In
+          </Link>
+          <Link
+            href="/signup"
+            className="bg-primary hover:bg-primary-light text-white font-bold py-2 px-6 rounded-full transition-colors"
+          >
+            Sign Up
+          </Link>
+        </div>
       </div>
     </nav>
   );
