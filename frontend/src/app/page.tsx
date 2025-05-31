@@ -1,6 +1,79 @@
+import CategoryCard from "@/components/cards/CategoryCard";
+import InstructorCard from "@/components/cards/InstructorCard";
 import Link from "next/link";
 
 export default function Home() {
+  // Placeholder categories data
+  const categories = [
+    {
+      id: 'web-dev',
+      name: 'Web Development',
+      description: 'Learn to build modern web applications with the latest technologies and frameworks.',
+      courseCount: 128
+    },
+    {
+      id: 'data-science',
+      name: 'Data Science',
+      description: 'Master data analysis, machine learning, and visualization techniques.',
+      courseCount: 92
+    },
+    {
+      id: 'mobile-dev',
+      name: 'Mobile Development',
+      description: 'Create powerful mobile apps for iOS and Android platforms.',
+      courseCount: 75
+    },
+    {
+      id: 'design',
+      name: 'UI/UX Design',
+      description: 'Design beautiful and intuitive user interfaces and experiences.',
+      courseCount: 64
+    },
+    {
+      id: 'business',
+      name: 'Business',
+      description: 'Develop business skills from marketing to entrepreneurship.',
+      courseCount: 118
+    },
+    {
+      id: 'ai',
+      name: 'Artificial Intelligence',
+      description: 'Explore the cutting edge of AI and machine learning technologies.',
+      courseCount: 56
+    }
+  ];
+
+  // Placeholder instructors data
+  const instructors = [
+    {
+      id: 'sarah-johnson',
+      name: 'Sarah Johnson',
+      title: 'Senior Web Developer',
+      rating: 4.9,
+      studentCount: 24500
+    },
+    {
+      id: 'michael-chen',
+      name: 'Michael Chen',
+      title: 'Data Scientist',
+      rating: 4.8,
+      studentCount: 18700
+    },
+    {
+      id: 'emma-rodriguez',
+      name: 'Emma Rodriguez',
+      title: 'UI/UX Designer',
+      rating: 4.95,
+      studentCount: 31200
+    },
+    {
+      id: 'david-kim',
+      name: 'David Kim',
+      title: 'Mobile App Developer',
+      rating: 4.7,
+      studentCount: 15600
+    }
+  ];
   return (
     <div>
       {/* Hero Section */}
@@ -94,6 +167,94 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Categories Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Explore Popular <span className="text-primary">Categories</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Discover courses in your area of interest from our diverse selection of categories
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {categories.slice(0, 6).map((category) => (
+              <CategoryCard
+                key={category.id}
+                id={category.id}
+                name={category.name}
+                description={category.description}
+                courseCount={category.courseCount}
+              />
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link 
+              href="/categories" 
+              className="inline-flex items-center text-primary font-bold text-lg group"
+            >
+              View All Categories
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" 
+                viewBox="0 0 20 20" 
+                fill="currentColor"
+              >
+                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Instructors Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Learn From Top <span className="text-primary">Instructors</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Our expert instructors bring real-world experience and passion to every course
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {instructors.map((instructor) => (
+              <InstructorCard
+                key={instructor.id}
+                id={instructor.id}
+                name={instructor.name}
+                title={instructor.title}
+                rating={instructor.rating}
+                studentCount={instructor.studentCount}
+              />
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link 
+              href="/instructors" 
+              className="inline-flex items-center text-primary font-bold text-lg group"
+            >
+              Meet All Instructors
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" 
+                viewBox="0 0 20 20" 
+                fill="currentColor"
+              >
+                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }

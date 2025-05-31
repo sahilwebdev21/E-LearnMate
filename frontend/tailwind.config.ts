@@ -24,8 +24,13 @@ module.exports = {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
         }
+      },
+      lineClamp: {
+        2: '2',
       }
     },
   },
-  plugins: [],
-}
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
+} 
