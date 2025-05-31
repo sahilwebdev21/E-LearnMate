@@ -6,3 +6,13 @@ env/
 # Database
 *.sqlite3
 *.db
+
+# Database
+*.sqlite3
+*.db
+
+# Media files
+media/
+
+# Environment files
+.env
