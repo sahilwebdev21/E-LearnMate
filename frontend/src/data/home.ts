@@ -20,3 +20,27 @@ export const instructors = [
     specialization: 'Data Analyst',
   },
 ]
+
+export const featuredCourses = [
+  {
+    id: 1,
+    title: 'Complete React Bootcamp',
+    image: '/images/courses/react.png',
+    price: 49,
+    category: 'Web Development',
+  },
+  {
+    id: 2,
+    title: 'Python for Data Analysis',
+    image: '/images/courses/python.png',
+    price: 59,
+    category: 'Data Science',
+  },
+  {
+    id: 3,
+    title: 'UI/UX Design Mastery',
+    image: '/images/courses/design.png',
+    price: 39,
+    category: 'Design',
+  },
+]
