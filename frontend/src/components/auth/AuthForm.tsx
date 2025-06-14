@@ -1,31 +1,52 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { FaGoogle, FaFacebook } from "react-icons/fa"
+import { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { FaGoogle, FaFacebook } from "react-icons/fa";
+import { useAuth } from "@/hooks/useAuth";
 
 type Props = {
-  mode: "login" | "signup"
-}
+  mode: "login" | "signup";
+};
 
 export default function AuthForm({ mode }: Props) {
-  const [form, setForm] = useState({ name: "", email: "", password: "" })
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [loading, setLoading] = useState(false);
+  const { login, register, error } = useAuth();
+  const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-  const title = mode === "login" ? "Login to E-LearnMate" : "Create an Account"
-  const toggleText = mode === "login" ? "Don't have an account?" : "Already have an account?"
-  const toggleLink = mode === "login" ? "/auth/signup" : "/auth/login"
-  const buttonText = mode === "login" ? "Login" : "Sign Up"
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    let success = false;
+
+    if (mode === "login") {
+      success = await login(form.email, form.password);
+    } else {
+      success = await register(form.email, form.name, form.password, "student");
+    }
+
+    setLoading(false);
+    if (success) router.push("/");
+  };
+
+  const title = mode === "login" ? "Login to E-LearnMate" : "Create an Account";
+  const toggleText = mode === "login" ? "Don't have an account?" : "Already have an account?";
+  const toggleLink = mode === "login" ? "/auth/signup" : "/auth/login";
+  const buttonText = mode === "login" ? "Login" : "Sign Up";
 
   return (
     <main className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-md rounded-lg">
         <h2 className="text-2xl font-bold text-center">{title}</h2>
-        
-        <form className="space-y-4">
+
+        <form className="space-y-4" onSubmit={handleSubmit}>
           {mode === "signup" && (
             <input
               type="text"
@@ -66,13 +87,17 @@ export default function AuthForm({ mode }: Props) {
 
           <button
             type="submit"
+            disabled={loading}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded font-semibold"
           >
-            {buttonText}
+            {loading ? "Please wait..." : buttonText}
           </button>
+
+          {error && <p className="text-red-500 text-sm text-center">{error}</p>}
         </form>
 
-        <div className="text-center text-sm text-gray-600">{toggleText}{" "}
+        <div className="text-center text-sm text-gray-600">
+          {toggleText}{" "}
           <Link href={toggleLink} className="text-blue-600 hover:underline">
             {mode === "login" ? "Sign Up" : "Login"}
           </Link>
@@ -88,5 +113,5 @@ export default function AuthForm({ mode }: Props) {
         </div>
       </div>
     </main>
-  )
+  );
 }
