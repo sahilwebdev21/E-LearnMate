@@ -1,7 +1,7 @@
 import { CourseCard } from "@/components/courses/CourseCard"
 import { CourseFilter } from "@/components/courses/CourseFilter"
 import { Pagination } from "@/components/courses/Pagination"
-import { courses } from "@/data/home"
+import { courses } from "@/data/courses"
 
 const CoursesPage = () => {
   return (
