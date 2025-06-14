@@ -55,6 +55,9 @@ INSTALLED_APPS = [
     'courses',
 ]
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
 SITE_ID = 1
 
 MIDDLEWARE = [
