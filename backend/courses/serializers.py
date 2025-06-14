@@ -18,3 +18,15 @@ class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
         fields = '__all__'
+
+class InstructorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = InstructorProfile
+        fields = ['id', 'user', 'bio', 'image']
+
+class InstructorDetailSerializer(serializers.ModelSerializer):
+    courses = CourseSerializer(many=True, read_only=True, source="course_set")
+
+    class Meta:
+        model = InstructorProfile
+        fields = ['id', 'user', 'bio', 'image', 'courses']
