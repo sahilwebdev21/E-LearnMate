@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import { AuthProvider } from "@/context/AuthContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +35,9 @@ export default function RootLayout({
           <Link href="/login">Login</Link>
           <Link href="/signup">Signup</Link>
         </nav>
-        <main className="p-6">{children}</main>
+        <main className="p-6">
+          <AuthProvider>{children}</AuthProvider>
+        </main>
       </body>
     </html>
   );

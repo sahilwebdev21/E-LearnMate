@@ -209,3 +209,16 @@ __marimo__/
 "*.pyc" 
 "venv/" 
 ".env" 
+
+# Frontend (Next.js)
+frontend/.next
+frontend/node_modules
+
+# Backend (Django)
+backend/__pycache__
+backend/*.sqlite3
+backend/.env
+
+# General
+.DS_Store
+*.log
