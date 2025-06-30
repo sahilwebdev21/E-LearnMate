@@ -17,7 +17,7 @@ class Meta:
     fields = [
         'id', 'title', 'description', 'slug', 'price',
         'is_published', 'created_at', 'instructor',
-        'category', 'category_id'
+        'category', 'category_id', 'level'
     ]
 
 def create(self, validated_data):

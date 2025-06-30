@@ -21,7 +21,14 @@ class Course(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     is_published = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
+    LEVEL_CHOICES = [
+        ('BEGINNER', 'Beginner'),
+        ('INTERMEDIATE', 'Intermediate'),
+        ('ADVANCED', 'Advanced'),
+    ]
 
+    level = models.CharField(max_length=20, choices=LEVEL_CHOICES, default='BEGINNER')
+    
     def __str__(self):
         return self.title
 
