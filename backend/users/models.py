@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 import uuid
 
 class UserRoles(models.TextChoices):
-    STUDENT = "STUDENT", "Student"
+    STUDENT = "STUDENT", "Student" 
     INSTRUCTOR = "INSTRUCTOR", "Instructor"
     ADMIN = "ADMIN", "Admin"
 

@@ -5,6 +5,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from users.models import CustomUser
 from django.contrib.auth import get_user_model
 
+CustomUser = get_user_model()
+
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(
         write_only=True,
@@ -27,17 +29,17 @@ class RegisterSerializer(serializers.ModelSerializer):
             'role': {'required': True}
         }
 
-    def validate_email(self, value):
-        if CustomUser.objects.filter(email=value).exists():
-            raise serializers.ValidationError("A user with this email already exists.")
-        return value
-
     def validate(self, data):
         if data['password'] != data['password2']:
             raise serializers.ValidationError({"password": "Password fields must match."})
+        
+        if CustomUser.objects.filter(email=data['email']).exists():
+            raise serializers.ValidationError({"email": "This email is already in use."})
+        
         return data
 
     def create(self, validated_data):
+        validated_data.pop('password2')
         user = CustomUser.objects.create_user(
             email=validated_data['email'],
             name=validated_data['name'],
