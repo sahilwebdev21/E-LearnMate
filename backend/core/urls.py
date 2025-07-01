@@ -19,7 +19,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/auth/', include('users.urls')), # Auth endpoints
+    path('api/auth/', include('api.auth.urls')), # ✅ points to api/auth/
     path('api/', include('api.urls')), # Course APIs (future)
     path('api/', include('courses.urls')), # Course management APIs
 ]

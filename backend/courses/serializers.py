@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Course, Category
 from users.models import CustomUser
+from .models import Module, Video, File
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -19,6 +20,24 @@ class Meta:
         'is_published', 'created_at', 'instructor',
         'category', 'category_id', 'level'
     ]
+
+class FileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = File
+        fields = ['id', 'title', 'file', 'uploaded_at']
+
+class VideoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Video
+        fields = ['id', 'title', 'video_url', 'order']
+
+class ModuleSerializer(serializers.ModelSerializer):
+    videos = VideoSerializer(many=True, read_only=True)
+    files = FileSerializer(many=True, read_only=True)
+
+class Meta:
+    model = Module
+    fields = ['id', 'title', 'order', 'videos', 'files']
 
 def create(self, validated_data):
     category_id = validated_data.pop('category_id')

@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import CustomUser, UserRoles
 from django.contrib.auth import authenticate
+from users.models import CustomUser
 from rest_framework_simplejwt.tokens import RefreshToken
 
 
@@ -31,24 +32,26 @@ class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField(write_only=True)
 
-    def validate(self, data):
-        user = authenticate(email=data['email'], password=data['password'])
+def validate(self, data):
+    email = data.get("email")
+    password = data.get("password")
 
+    if email and password:
+        user = authenticate(email=email, password=password)
         if not user:
             raise serializers.ValidationError("Invalid email or password")
+    else:
+        raise serializers.ValidationError("Both email and password are required")
 
-        if not user.is_active:
-            raise serializers.ValidationError("User is inactive")
+    refresh = RefreshToken.for_user(user)
 
-        refresh = RefreshToken.for_user(user)
-
-        return {
-            'access': str(refresh.access_token),
-            'refresh': str(refresh),
-            'user': {
-                'id': user.id,
-                'name': user.name,
-                'email': user.email,
-                'role': user.role
-            }
+    return {
+        'access': str(refresh.access_token),
+        'refresh': str(refresh),
+        'user': {
+            'id': str(user.id),
+            'email': user.email,
+            'name': user.name,
+            'role': user.role
         }
+    }

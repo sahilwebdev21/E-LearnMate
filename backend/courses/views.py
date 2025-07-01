@@ -4,6 +4,14 @@ from .serializers import CourseSerializer
 from .permissions import IsInstructorOrReadOnly
 from django_filters.rest_framework import DjangoFilterBackend
 from .filters import CourseFilter
+from .models import Category
+from .serializers import CategorySerializer
+from rest_framework import viewsets, permissions
+
+class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    permission_classes = [permissions.AllowAny]
 
 class CourseViewSet(viewsets.ModelViewSet):
     queryset = Course.objects.all().order_by('-created_at')
